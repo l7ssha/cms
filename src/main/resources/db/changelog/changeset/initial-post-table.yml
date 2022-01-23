@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: craete-post-table
+      author: Szymon Uglis
+      changes:
+        - createTable:
+            tableName: posts
+            columns:
+              - column:
+                  name: id
+                  type: varchar(255)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(32)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: content
+                  type: varchar
+                  constraints:
+                    nullable: false
+        - createIndex:
+            columns:
+              - column:
+                  name: title
+            unique: true
+            indexName: idx_title
+            tableName: posts
