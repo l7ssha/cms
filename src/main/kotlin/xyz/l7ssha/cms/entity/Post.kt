@@ -5,7 +5,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "posts")
-open class Post() {
+open class Post {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
@@ -16,8 +16,8 @@ open class Post() {
     open var id: String? = null
 
     @Column(name = "title", nullable = false)
-    open var title: String? = null
+    open lateinit var title: String
 
     @Column(name = "content", nullable = false)
-    open var content: String? = null
+    open lateinit var content: String
 }
